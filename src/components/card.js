@@ -9,7 +9,7 @@ export const deleteCard = (cardElement) => {
   };
   
   //Создание карточки
-  export function addCard(cardData, cardTemplate, functionDeleteCardCallBack, functionLikeCardCallBack, functionOpenImageCallBack) {
+  export function createCard(cardData, cardTemplate, functionDeleteCardCallBack, functionLikeCardCallBack, functionOpenImageCallBack) {
     const cardElement = cardTemplate.querySelector("li").cloneNode(true);
     const cardImage = cardElement.querySelector(".card__image");
   

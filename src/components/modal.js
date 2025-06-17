@@ -1,14 +1,14 @@
 export function openModal(popup) {
     popup.classList.add('popup_is-opened');
-    document.addEventListener('keydown', escClose);
+    document.addEventListener('keydown', handleEscClose);
 }
 
 export function closeModal(popup) {
     popup.classList.remove('popup_is-opened');
-    document.removeEventListener('keydown', escClose);
+    document.removeEventListener('keydown', handleEscClose);
 }
 
-function escClose(evt) {
+function handleEscClose(evt) {
     if (evt.key === 'Escape') {
         const popup = document.querySelector('.popup_is-opened');
         if (popup) {
