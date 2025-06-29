@@ -19,6 +19,18 @@
   cursor: pointer;
 }
 
+.popup__button_disabled {
+  background: #000000;
+  border: 1px solid #000000;
+  opacity: 0.2;
+  cursor: default;
+}
+
+.popup__button_disabled:hover {
+  background: #000000;
+  cursor: default;
+}
+
 @media screen and (max-width: 568px) {
   .popup__button {
     font-size: 14px;
