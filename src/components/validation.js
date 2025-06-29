@@ -1,12 +1,3 @@
-const validationConfig = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-};
-
 function enableValidation(validationConfig) {
   const formList = Array.from(
     document.querySelectorAll(validationConfig.formSelector)
@@ -28,8 +19,7 @@ function clearValidation(formElement, validationConfig) {
     hideInputError(formElement, inputElement, validationConfig);
   });
 
-  buttonElement.classList.add(validationConfig.inactiveButtonClass);
-  buttonElement.disabled = true;
+  toggleButtonState(inputList, buttonElement, validationConfig);
 }
 
 function setEventListeners(formElement, validationConfig) {
@@ -46,6 +36,8 @@ function setEventListeners(formElement, validationConfig) {
       toggleButtonState(inputList, buttonElement, validationConfig);
     });
   });
+  
+  toggleButtonState(inputList, buttonElement, validationConfig);
 }
 
 function checkInputValidity(formElement, inputElement, validationConfig) {
@@ -100,4 +92,4 @@ function toggleButtonState(inputList, buttonElement, validationConfig) {
   }
 }
 
-export { enableValidation, clearValidation, validationConfig };
+export { enableValidation, clearValidation };

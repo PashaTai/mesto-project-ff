@@ -1,10 +1,20 @@
 import { createCard, likeCard } from './components/card.js';
 import { openModal, closeModal, setCloseListener } from './components/modal.js';
-import { enableValidation, clearValidation, validationConfig } from './components/validation.js';
+import { enableValidation, clearValidation } from './components/validation.js';
 import { getUserInfo, getInitialCards, updateProfile, addCard, deleteCardFromServer, likeCard as likeCardApi, unlikeCard, updateAvatar } from './components/api.js';
 import './vendor/normalize.css';
 import './vendor/fonts.css';
 import './pages/index.css';
+
+// Validation config
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+};
 
 const cardTemplate = document.querySelector("#card-template").content;
 const cardList = document.querySelector(".places__list");
@@ -92,7 +102,6 @@ function handleCreateCardFormSubmit(evt) {
     .catch((err) => {})
     .finally(() => {
       submitButton.textContent = originalText;
-      submitButton.disabled = false;
     });
 }
 
@@ -115,7 +124,6 @@ function handleEditProfileFormSubmit(evt) {
     .catch((err) => {})
     .finally(() => {
       submitButton.textContent = originalText;
-      submitButton.disabled = false;
     });
 }
 
@@ -138,7 +146,6 @@ function handleAvatarFormSubmit(evt) {
     .catch((err) => {})
     .finally(() => {
       submitButton.textContent = originalText;
-      submitButton.disabled = false;
     });
 }
 
@@ -162,7 +169,6 @@ function handleDeleteCardFormSubmit(evt) {
     .catch((err) => {})
     .finally(() => {
       submitButton.textContent = originalText;
-      submitButton.disabled = false;
     });
 }
 
